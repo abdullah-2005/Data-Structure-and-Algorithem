@@ -1,0 +1,122 @@
+# DSA lab4
+#Task1   
+public class SwapArrays {
+    public static void main(String[] args) {
+        int[] array1 = {1, 2, 3, 4};
+        int[] array2 = {5, 6, 7, 8};
+        
+        for (int i = 0; i < array1.length; i++) {
+            int temp = array1[i];
+            array1[i] = array2[i];
+            array2[i] = temp;
+        }
+        
+        System.out.print("Array 1: ");
+        for (int num : array1) System.out.print(num + " ");
+        
+        System.out.print("\nArray 2: ");
+        for (int num : array2) System.out.print(num + " ");
+    }
+}
+
+#Task2
+  import java.util.ArrayList;
+
+public class MergeArray {
+    private ArrayList<Integer> mergedArray = new ArrayList<>();
+
+    public void mergeArray(int[] array) {
+        for (int num : array) {
+            mergedArray.add(num);
+        }
+    }
+
+    public static void main(String[] args) {
+        MergeArray mergeArrayObj = new MergeArray();
+        int[] newArray = {9, 10, 11, 12};
+        
+        mergeArrayObj.mergeArray(newArray);
+        
+        System.out.print("Merged Array: ");
+        for (int num : mergeArrayObj.mergedArray) System.out.print(num + " ");
+    }
+}
+
+#Task3
+  public class CheckPalindrome {
+    public void checkPalindrome(String[] strings) {
+        for (String str : strings) {
+            if (str.equals(new StringBuilder(str).reverse().toString())) {
+                System.out.println(str + " is a palindrome.");
+            } else {
+                System.out.println(str + " is not a palindrome.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        CheckPalindrome checker = new CheckPalindrome();
+        String[] words = {"Abdullah","Civic","Siddiqui"};
+        
+        checker.checkPalindrome(words);
+    }
+}
+
+#Task4
+  public class CountEvenOdd {
+    public void countEvenOdd(int[] array) {
+        int evenCount = 0, oddCount = 0;
+        
+        for (int num : array) {
+            if (num % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+        }
+        
+        System.out.println("Even numbers: " + evenCount);
+        System.out.println("Odd numbers: " + oddCount);
+    }
+
+    public static void main(String[] args) {
+        CountEvenOdd counter = new CountEvenOdd();
+        int[] sampleArray = {1, 2, 3, 4, 5, 6};
+        
+        counter.countEvenOdd(sampleArray);
+    }
+}
+
+
+#Task5
+import java.util.HashSet;
+
+public class MergeAndRemoveDuplicates {
+    public int[] mergeAndRemoveDuplicates(int[] arr1, int[] arr2) {
+        HashSet<Integer> set = new HashSet<>();
+        
+        for (int num : arr1) set.add(num);
+        for (int num : arr2) set.add(num);
+        
+        int[] result = new int[set.size()];
+        int index = 0;
+        
+        for (int num : set) result[index++] = num;
+        
+        return result;
+    }
+
+    public static void main(String[] args) {
+        MergeAndRemoveDuplicates merger = new MergeAndRemoveDuplicates();
+        int[] arrayA = {1, 2, 3, 4, 5};
+        int[] arrayB = {3, 4, 5, 6, 7};
+        
+        int[] mergedNoDuplicates = merger.mergeAndRemoveDuplicates(arrayA, arrayB);
+        
+        System.out.print("Merged Array without duplicates: ");
+        for (int num : mergedNoDuplicates) System.out.print(num + " ");
+    }
+}
+
+
+
